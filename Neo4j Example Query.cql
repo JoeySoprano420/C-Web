@@ -1,0 +1,7 @@
+CREATE (f:Function {name: "add", returnType: "int"})
+CREATE (p1:Parameter {name: "a", type: "int"})
+CREATE (p2:Parameter {name: "b", type: "int"})
+CREATE (r:Return {expression: "a + b"})
+CREATE (f)-[:CONTAINS]->(p1)
+CREATE (f)-[:CONTAINS]->(p2)
+CREATE (f)-[:RETURNS]->(r)
