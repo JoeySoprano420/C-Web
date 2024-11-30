@@ -1,0 +1,8 @@
+define i32 @add(i32 %a, i32 %b) {
+entry:
+  %c = alloca i32
+  %addtmp = add i32 %a, %b
+  store i32 %addtmp, i32* %c
+  %loadtmp = load i32, i32* %c
+  ret i32 %loadtmp
+}
