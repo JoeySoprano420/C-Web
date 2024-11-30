@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    depends_on:
+      - neo4j
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  neo4j:
+    image: neo4j:4.4
+    ports:
+      - "7687:7687"
+      - "7474:7474" # Neo4j Browser
+    environment:
+      NEO4J_AUTH: neo4j/password
